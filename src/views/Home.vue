@@ -1,17 +1,11 @@
 <template>
   <div class="home">
-    <section class="hero">
-      <div class="hero-text container">
-        <!-- <h4>Vue Responsive Nav Menu</h4>
-        <hr />
-        <h2>
-          With Vue <br />
-          Animations
-        </h2>
-        <hr /> -->
-      </div>
-    </section>
+    <section class="hero"></section>
     <section>
+      <div class="hero-text container">
+        <h4>あなたにあう趣味を探します</h4>
+        <h2>おうちで楽しく過ごすためのサービスをご覧ください。</h2>
+      </div>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum iusto
         voluptates et optio iure repellat reiciendis, esse accusamus blanditiis
@@ -23,7 +17,23 @@
         officiis voluptatum quae! Ullam accusantium quae incidunt quibusdam illo
         excepturi nam repudiandae animi. Fuga amet commodi minus aperiam sint,
         dolore placeat. Recusandae deleniti temporibus ipsam. Quos voluptatibus
-        tenet
+        tenetres cupiditate quis delectus, impedit, id doloribus rerum optio
+        nihil ex repudiandae ab dolorum totam? Blanditiis ab unde fugit
+        repellendus laboriosam id ducimus tempore molestiae nam impedit ea
+        libero non quis, iusto inventore, minus magni illo modi rerum, incidunt
+        officiis voluptatum quae! Ullam accusantium quae incidunt quibusdam illo
+        excepturi nam repudiandae animres cupiditate quis delectus, impedit, id
+        doloribus rerum optio nihil ex repudiandae ab dolorum totam? Blanditiis
+        ab unde fugit repellendus laboriosam id ducimus tempore molestiae nam
+        impedit ea libero non quis, iusto inventore, minus magni illo modi
+        rerum, incidunt officiis voluptatum quae! Ullam accusantium quae
+        incidunt quibusdam illo excepturi nam repudiandae animres cupiditate
+        quis delectus, impedit, id doloribus rerum optio nihil ex repudiandae ab
+        dolorum totam? Blanditiis ab unde fugit repellendus laboriosam id
+        ducimus tempore molestiae nam impedit ea libero non quis, iusto
+        inventore, minus magni illo modi rerum, incidunt officiis voluptatum
+        quae! Ullam accusantium quae incidunt quibusdam illo excepturi nam
+        repudiandae anim
       </p>
     </section>
   </div>
@@ -39,15 +49,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .home {
-//   display: flex;
-//   min-height: 100vh;
-//   flex-direction: column;
-// }
 .hero {
   background-image: url("../assets/first impress22.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position-y: 80px;
   position: relative;
   height: 95vh;
   background-size: contain;
@@ -59,11 +65,12 @@ export default {
   }
 
   .hero-text {
+    padding-top: 200px;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #fff;
+    color: rgb(0, 0, 0);
 
     h4 {
       text-transform: uppercase;

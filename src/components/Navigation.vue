@@ -2,20 +2,25 @@
   <header :class="{ 'scrolled-nav': scrolledNav }">
     <nav>
       <div class="branding">
-        <img src="@/assets/logo.png" alt="" />
+        <router-link class="link" :to="{ name: 'Home' }"
+          ><img src="@/assets/logo.png" alt=""
+        /></router-link>
       </div>
       <ul v-show="!mobile" class="navigation">
-        <li>
-          <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
+        <li class="li2">
+          <router-link class="link" :to="{ name: 'サービス紹介' }"
+            >サービス紹介</router-link
+          >
         </li>
-        <li>
-          <router-link class="link" :to="{ name: 'About' }">About</router-link>
+        <li class="li3">
+          <router-link class="link" :to="{ name: 'チャットルム' }"
+            >チャットルム</router-link
+          >
         </li>
-        <li>
-          <router-link class="link" :to="{ name: '' }">Portfolio</router-link>
-        </li>
-        <li>
-          <router-link class="link" :to="{ name: '' }">Contact</router-link>
+        <li class="li4">
+          <router-link class="link" :to="{ name: 'お問い合わせ' }"
+            >お問い合わせ</router-link
+          >
         </li>
       </ul>
       <div class="icon">
@@ -28,18 +33,45 @@
       </div>
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
-          <li>
-            <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
+          <hr />
+          <li class="li1">
+            <router-link class="link" :to="{ name: 'Home' }"
+              >トップページ</router-link
+            >
           </li>
-          <li>
-            <router-link class="link" :to="{ name: '' }">About</router-link>
+          <hr />
+          <li class="li2">
+            <router-link class="link" :to="{ name: 'サービス紹介' }"
+              >サービス紹介</router-link
+            >
           </li>
-          <li>
-            <router-link class="link" :to="{ name: '' }">Portfolio</router-link>
+          <hr />
+          <li class="li3">
+            <router-link class="link" :to="{ name: 'チャットルム' }"
+              >チャットルム</router-link
+            >
           </li>
-          <li>
-            <router-link class="link" :to="{ name: '' }">Contact</router-link>
+          <hr />
+          <li class="li4">
+            <router-link class="link" :to="{ name: 'お問い合わせ' }"
+              >お問い合わせ</router-link
+            >
           </li>
+          <hr />
+          <ul class="link-sort">
+            <router-link :to="{ name: 'サービス紹介' }"
+              ><img src="@/assets/art.png" alt=""
+            /></router-link>
+            <router-link :to="{ name: 'サービス紹介' }"
+              ><img src="@/assets/Healthy.png" alt=""
+            /></router-link>
+            <router-link :to="{ name: 'サービス紹介' }"
+              ><img src="@/assets/courses.png" alt=""
+            /></router-link>
+            <router-link :to="{ name: 'サービス紹介' }"
+              ><img src="@/assets/other.png" alt=""
+            /></router-link>
+          </ul>
         </ul>
       </transition>
     </nav>
@@ -114,6 +146,22 @@ header {
       max-width: 1140px;
     }
 
+    .li2 {
+      background: url("../assets/listPC.png") 0 40% no-repeat no-repeat;
+      background-size: 30px 30px;
+      padding-left: 50px;
+    }
+    .li3 {
+      background: url("../assets/chatroomPC.png") 0 40% no-repeat no-repeat;
+      background-size: 30px 30px;
+      padding-left: 50px;
+    }
+    .li4 {
+      background: url("../assets/contactusPC.png") 0 40% no-repeat no-repeat;
+      background-size: 30px 30px;
+      padding-left: 50px;
+    }
+
     ul,
     .link {
       font-weight: 500;
@@ -125,25 +173,21 @@ header {
     li {
       text-transform: uppercase;
       padding: 16px;
-      margin-left: 16px;
     }
 
     .link {
       font-size: 14px;
       transition: 0.5s ease all;
-      padding-bottom: 4px;
       border-bottom: 1px solid transparent;
-
       &:hover {
-        color: aqua;
-        border-color: aquamarine;
+        color: rgb(0, 0, 0);
+        border-color: rgb(0, 0, 0);
       }
     }
 
     .branding {
       display: flex;
       align-items: center;
-
       img {
         width: 210px;
         transition: 0.5s ease all;
@@ -164,7 +208,6 @@ header {
       top: 0;
       right: 24px;
       height: 100%;
-
       i {
         cursor: pointer;
         font-size: 24px;
@@ -180,17 +223,54 @@ header {
       flex-direction: column;
       position: fixed;
       width: 100%;
-      max-width: 250px;
+      max-width: 280px;
       height: 100%;
-      background-color: white;
+      background-color: #edf6ff;
       top: 0;
       left: 0;
 
-      li {
-        margin-left: 0;
-        .link {
-          color: black;
+      .link-sort {
+        margin: 20px 20px;
+        text-align: center;
+        transition: 0.5s ease all;
+        img {
+          padding: 10px;
+          height: 50%;
+          width: 40%;
         }
+      }
+
+      li {
+        margin-left: 20%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        .link {
+          color: #000000;
+        }
+      }
+
+      hr {
+        border: 1px solid #457b9d;
+        &:first-child {
+          margin-top: 30%;
+        }
+      }
+
+      .li1 {
+        background: url("../assets/homepage.png") 1% 40% no-repeat no-repeat;
+        padding-left: 50px;
+      }
+      .li2 {
+        background: url("../assets/list.png") 1% 40% no-repeat no-repeat;
+        padding-left: 50px;
+      }
+      .li3 {
+        background: url("../assets/chatroom.png") 1% 40% no-repeat no-repeat;
+        padding-left: 50px;
+      }
+      .li4 {
+        background: url("../assets/contactus.png") 1% 40% no-repeat no-repeat;
+        padding-left: 50px;
       }
     }
     .mobile-nav-enter-active,
@@ -210,7 +290,7 @@ header {
 }
 
 .scrolled-nav {
-  background-color: black;
+  background-color: #457b9d;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 

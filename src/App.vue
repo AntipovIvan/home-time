@@ -20,14 +20,14 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
+  font-family: "Hiragino Kaku Gothic Std";
   font-weight: 400;
 }
 
 .app {
   min-height: 100vh;
   position: relative;
-  background-color: #f1f1f1;
+  background-color: #edf6ff;
 }
 .container {
   padding: 0 20px;
