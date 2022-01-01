@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
-import About from "../views/About.vue";
-import List from "../views/List.vue";
-import Chatroom from "../views/Chatroom.vue";
+import Home from "../pages/Home.vue";
+import About from "../pages/About.vue";
+import List from "../pages/List.vue";
+import Chatroom from "../pages/Chatroom.vue";
 
 const routes = [
   {
