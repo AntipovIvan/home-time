@@ -7,19 +7,66 @@
         <h2>おうちで楽しく過ごすためのサービスをご覧ください。</h2>
       </div>
     </section>
+    <div class="card-container">
+      <div class="row">
+        <card v-for="(service, i) in allServices" :key="i" :service="service" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import Card from "@/components/helpers/Card.vue";
+import services from "@/data/services";
 
 export default {
   name: "Home",
-  components: {},
+  components: { Card },
+  data() {
+    return {
+      allServices: [...services], // All services from json file.
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+.card-container {
+  max-width: 1620px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+  @media (min-width: 1366px) {
+    max-width: 1420px;
+  }
+  @media (min-width: 1920px) {
+    max-width: 1620px;
+  }
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+
 .hero {
   content: url("../assets/first impress22.png");
   margin-left: auto;

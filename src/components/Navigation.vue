@@ -251,6 +251,7 @@ header {
 
       hr {
         border: 1px solid #457b9d;
+        margin-left: -30px;
         &:first-child {
           margin-top: 30%;
         }
