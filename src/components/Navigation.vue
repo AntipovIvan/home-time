@@ -83,10 +83,10 @@ export default {
   name: "navigation",
   data() {
     return {
-      scrolledNav: null,
-      mobile: null,
-      mobileNav: null,
-      windowsWidth: null,
+      scrolledNav: false,
+      mobile: false,
+      mobileNav: false,
+      windowsWidth: false,
     };
   },
   created() {
@@ -95,12 +95,17 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
+    document.addEventListener("click", this.close);
   },
   methods: {
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
     },
-
+    close(e) {
+      if (!this.$el.contains(e.target)) {
+        this.mobileNav = false;
+      }
+    },
     updateScroll() {
       const scrollPosition = window.scrollY;
       if (scrollPosition > 50) {
@@ -128,7 +133,7 @@ export default {
 <style lang="scss" scoped>
 header {
   background-color: #457b9d;
-  z-index: 99;
+  z-index: 10;
   width: 100%;
   position: fixed;
   transition: 0.5s ease all;
@@ -301,8 +306,6 @@ header {
     .branding {
       img {
         widows: 40px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          0 2px 4px -1px rgba(0, 0, 0, 0.06);
       }
     }
   }

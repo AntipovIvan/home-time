@@ -10,7 +10,7 @@
       <div class="content">
         <div class="card-body">
           <p class="figcaption">{{ service.figcaption }}</p>
-          <p>
+          <p class="text-card">
             {{ service.description }}
           </p>
         </div>
@@ -18,6 +18,7 @@
       <div class="button-container">
         <button class="btn btn-secondary">詳しく</button>
       </div>
+      <hr />
     </div>
   </div>
 </template>
@@ -46,8 +47,23 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  @media (max-width: 576px) {
+    max-width: 330px;
+    margin: 0 1rem 0 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
 }
-
+hr {
+  @media (max-width: 768px) {
+    margin-top: 40px;
+    border: 3px solid #0d3853;
+  }
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
 .card-body {
   flex: 1 1 auto;
   padding: 1rem 0rem;
@@ -55,6 +71,19 @@ export default {
 .figcaption {
   font-size: 0.875rem;
   margin-top: -10px;
+}
+.text-card {
+  @media (max-width: 768px) {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 1px 1px 12px rgb(233 233 233);
+    transition: all 0.5s;
+    width: 45vh;
+    padding: 20px 40px;
+    margin-left: -4vh;
+    height: 100%;
+  }
 }
 p {
   margin-top: 0;
@@ -76,13 +105,7 @@ p {
 }
 
 .button-container {
-  position: absolute;
-  bottom: 0;
-  right: 10%;
-  @media (min-width: 768px) {
-    flex: 0 0 auto;
-    width: 40%;
-  }
+  text-align: end;
 }
 
 .btn {

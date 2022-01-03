@@ -25,6 +25,13 @@ const routes = [
     name: "チャットルム",
     component: Chatroom,
   },
+  {
+    path: "/no-image",
+    beforeEnter() {
+      location.href = "https://no-image.co.jp/";
+    },
+    name: "ノーイメージ",
+  },
 ];
 
 const router = createRouter({

@@ -7,21 +7,41 @@
         <h2>おうちで楽しく過ごすためのサービスをご覧ください。</h2>
       </div>
     </section>
-    <div class="card-container">
-      <div class="row">
-        <card v-for="(service, i) in allServices" :key="i" :service="service" />
+    <HelloCards />
+    <section>
+      <div class="card-container">
+        <div class="row">
+          <Card
+            v-for="(service, i) in allServices.slice(0, 2)"
+            :key="i"
+            :service="service"
+          />
+        </div>
       </div>
-    </div>
+    </section>
+    <section class="near-footer">
+      <h4>自由な時間の質を高めよう。</h4>
+      <div class="text-card">
+        <h5>
+          この図書館はあなたが興味を持っているかもしれないコンテンツをアーカイブしています
+        </h5>
+      </div>
+    </section>
+
+    <Footer />
   </div>
 </template>
 
 <script>
 import Card from "@/components/helpers/Card.vue";
+import Footer from "@/components/helpers/Footer.vue";
+import HelloCards from "@/components/helpers/HelloCards.vue";
+
 import services from "@/data/services";
 
 export default {
   name: "Home",
-  components: { Card },
+  components: { HelloCards, Card, Footer },
   data() {
     return {
       allServices: [...services], // All services from json file.
@@ -32,8 +52,9 @@ export default {
 
 <style lang="scss" scoped>
 .card-container {
+  text-align: center !important;
   max-width: 1620px;
-  width: 80%;
+  width: 90%;
   margin-right: auto;
   margin-left: auto;
 
@@ -56,15 +77,32 @@ export default {
     max-width: 1620px;
   }
 }
-
-.row {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
+h5 {
+  line-height: 1.6;
+}
+.near-footer {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-0.5 * var(--bs-gutter-x));
-  margin-left: calc(-0.5 * var(--bs-gutter-x));
+  text-align: center;
+  justify-content: center;
+  @media (max-width: 625px) {
+    flex-direction: row;
+  }
+}
+.text-card {
+  margin: 20px 0;
+
+  @media (max-width: 625px) {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 1px 1px 12px rgb(233 233 233);
+    transition: all 0.5s;
+    width: 45vh;
+    padding: 20px 40px;
+    height: 100%;
+  }
 }
 
 .hero {
