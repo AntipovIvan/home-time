@@ -1,64 +1,37 @@
 <template>
   <div class="container"></div>
   <footer>
-    <!-- Footer main -->
     <section class="ft-main">
-      <div class="">
-        <router-link class="link" :to="{ name: 'Home' }"
-          ><img src="@/assets/logoFooter.png" alt=""
-        /></router-link>
-      </div>
+      <router-link class="link" :to="{ name: 'Home' }"
+        ><img src="@/assets/logoFooter.png" alt=""
+      /></router-link>
+
       <router-link class="ft-main-item" :to="{ name: 'サービス紹介' }">
-        <h2 class="ft-title">サービス紹介</h2>
+        <p class="ft-title">サービス紹介</p>
       </router-link>
       <router-link class="ft-main-item" :to="{ name: 'チャットルム' }">
-        <h2 class="ft-title">チャットルーム</h2>
+        <p class="ft-title">チャットルーム</p>
       </router-link>
       <router-link class="ft-main-item" :to="{ name: 'お問い合わせ' }">
-        <h2 class="ft-title">お問い合わせ</h2>
+        <p class="ft-title">お問い合わせ</p>
       </router-link>
       <router-link class="ft-main-item" :to="{ name: 'ノーイメージ' }">
-        <h2 class="ft-title">ノーイメジウェブサイト</h2>
+        <p class="ft-title">ノーイメジウェブサイト</p>
       </router-link>
     </section>
-
+    <hr />
     <section class="ft-legal">
       <ul class="ft-legal-list">
-        <li>&copy; 2019 Copyright Nowrap Inc.</li>
+        <li>&copy; 2022 株式会社 ノーイメージ</li>
       </ul>
     </section>
   </footer>
-  <!-- <footer :class="{ 'scrolled-nav': scrolledNav }">
-    <nav>
-      <div class="branding">
-        <router-link class="link" :to="{ name: 'Home' }"
-          ><img src="@/assets/logoFooter.png" alt=""
-        /></router-link>
-      </div>
-      <ul class="navigation">
-        <li class="li2">
-          <router-link class="link" :to="{ name: 'サービス紹介' }"
-            >サービス紹介</router-link
-          >
-        </li>
-        <li class="li3">
-          <router-link class="link" :to="{ name: 'チャットルム' }"
-            >チャットルム</router-link
-          >
-        </li>
-        <li class="li4">
-          <router-link class="link" :to="{ name: 'お問い合わせ' }"
-            >お問い合わせ</router-link
-          >
-        </li>
-      </ul>
-    </nav>
-  </footer> -->
 </template>
 
 <script>
 export default {
   name: "footer",
+  components: {},
   data() {},
   created() {},
   mounted() {},
@@ -67,6 +40,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+hr {
+  @media (max-width: 576px) {
+    display: block;
+    margin-bottom: 0;
+    border: 2px solid #ffffff;
+    opacity: 1;
+  }
+  display: none;
+}
 ul {
   list-style: none;
   padding-left: 0;
@@ -86,28 +68,39 @@ a:hover {
 .link {
   display: flex;
   align-items: center;
+  :first-child {
+    @media only screen and (min-width: 576px) {
+      position: absolute;
+      bottom: 0;
+      left: 5%;
+    }
+    @media only screen and (max-width: 1024px) {
+      bottom: 20px;
+    }
+  }
   img {
-    width: 150px;
+    width: 140px;
     transition: 0.5s ease all;
   }
 }
 .ft-title {
+  font-size: 18px;
   color: #fff;
-  font-size: 1.375rem;
   padding-bottom: 0.625rem;
+  text-align: center;
 }
-
 .container {
   flex: 1;
 }
 .ft-main {
-  padding: 1.25rem 1.875rem;
+  padding: 0 1.875rem;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 @media only screen and (min-width: 576px) {
   .ft-main {
-    justify-content: space-evenly;
+    padding: 0 100px;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -116,33 +109,23 @@ a:hover {
   }
 }
 .ft-main-item {
-  padding: 1.25rem;
+  padding: 1.25rem 1.25rem 0 1.25rem;
   min-width: 12.5rem;
+  max-height: 50px;
 }
-.ft-social {
-  padding: 0 1.875rem 1.25rem;
-}
-.ft-social-list {
-  display: flex;
-  justify-content: center;
-  border-top: 1px rgb(255, 255, 255) solid;
-  padding-top: 1.25rem;
-}
-.ft-social-list li {
-  margin: 0.5rem;
-  font-size: 1.25rem;
-}
+
 .ft-legal {
-  padding: 0.9375rem 1.875rem;
+  margin-top: 20px;
+  padding: 0.2375rem 1.875rem;
   background-color: #457b9d;
 }
 .ft-legal-list {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .ft-legal-list li {
-  margin: 0.125rem 0.625rem;
   white-space: nowrap;
   color: white;
 }

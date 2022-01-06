@@ -63,7 +63,7 @@ section {
   }
   .hello {
     background-color: #f1faee;
-    filter: drop-shadow(1px 1px 0.1rem rgba(162, 162, 162, 0.68));
+    filter: drop-shadow(0px 3px 0.1rem rgba(162, 162, 162, 0.68));
     height: 150px;
     width: 80%;
     border: none;
@@ -214,9 +214,9 @@ section {
         max-width: 250px;
       }
       @media (max-width: 625px) {
-        top: 55%;
-        left: 0;
-        max-width: 100%;
+        top: 52%;
+        left: 5%;
+        max-width: 90%;
         background-color: rgb(255, 255, 255);
         border-radius: 10px;
         border: none;
@@ -249,9 +249,9 @@ section {
         max-width: 250px;
       }
       @media (max-width: 625px) {
-        top: 55%;
-        left: 0;
-        max-width: 100%;
+        top: 57%;
+        left: 5%;
+        max-width: 90%;
         background-color: rgb(255, 255, 255);
         border-radius: 10px;
         border: none;
@@ -284,9 +284,9 @@ section {
         max-width: 250px;
       }
       @media (max-width: 625px) {
-        top: 55%;
-        left: 0;
-        max-width: 100%;
+        top: 57%;
+        left: 5%;
+        max-width: 90%;
         background-color: rgb(255, 255, 255);
         border-radius: 10px;
         border: none;

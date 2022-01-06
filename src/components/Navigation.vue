@@ -41,8 +41,8 @@
           </li>
           <hr />
           <li class="li2">
-            <router-link class="link" :to="{ name: 'サービス紹介' }"
-              >サービス紹介</router-link
+            <router-link class="link" :to="{ name: 'お問い合わせ' }"
+              >お問い合わせ</router-link
             >
           </li>
           <hr />
@@ -53,8 +53,8 @@
           </li>
           <hr />
           <li class="li4">
-            <router-link class="link" :to="{ name: 'お問い合わせ' }"
-              >お問い合わせ</router-link
+            <router-link class="link" :to="{ name: 'サービス紹介' }"
+              >サービス紹介</router-link
             >
           </li>
           <hr />
@@ -267,7 +267,7 @@ header {
         padding-left: 50px;
       }
       .li2 {
-        background: url("../assets/list.png") 1% 40% no-repeat no-repeat;
+        background: url("../assets/contactus.png") 1% 40% no-repeat no-repeat;
         padding-left: 50px;
       }
       .li3 {
@@ -275,7 +275,7 @@ header {
         padding-left: 50px;
       }
       .li4 {
-        background: url("../assets/contactus.png") 1% 40% no-repeat no-repeat;
+        background: url("../assets/list.png") 1% 40% no-repeat no-repeat;
         padding-left: 50px;
       }
     }

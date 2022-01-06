@@ -1,4 +1,4 @@
-export default [
+let services = [
   {
     id: 1,
     name: "バーチャル博物館にアクセスをできます",
@@ -7,6 +7,7 @@ export default [
     description:
       "ワシントンの国立自然史博物館やロンドンの大英博物館などの有名な博物館はオンライン体験を提供しており、視聴者は自宅の快適さから博物館の展示について学ぶことができます。",
     figcaption: "オンラインで博物館を探索することができます",
+    category: "オンラインツアー",
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export default [
     description:
       "シェフは、パンデミックの際に孤立した人々に料理のヒントやアドバイスを提供します。 Antoni Porowskiは、レシピを共有するためにInstagramで「QuarEye」と呼ばれるシリーズを立ち上げました。",
     figcaption: "アントニが「Keep Calm-lette.」を作っています",
+    category: "健康の維持",
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export default [
     description:
       "アーティストのAIGahakuは、自分撮りをルネサンス絵画に変えるウェブサイトを作成しました。自分の写真をアップロードして、以下のリンクからテストできます。",
     figcaption: "サイトは自分撮りをルネサンス絵画に変えます",
+    category: "その他",
   },
   {
     id: 4,
@@ -32,8 +35,9 @@ export default [
     image: require("@/assets/services/health.png"),
     color: "pink",
     description:
-      "コロナウイルスのパンデミックの最中に苦労している人々を助けることができるさまざまなオンラインメンタルヘルスリソースがあります",
+      "コロナウイルスのパンデミックの最中に苦労している人々を助けることができるさまざまなオンラインメンタルヘルスリソースがあります    ",
     figcaption: "仮想メンタルヘルスリソース",
+    category: "トレーニングコース",
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ export default [
     description:
       "ワシントンの国立自然史博物館やロンドンの大英博物館などの有名な博物館はオンライン体験を提供しており、視聴者は自宅の快適さから博物館の展示について学ぶことができます。",
     figcaption: "オンラインで博物館を探索することができます",
+    category: "オンラインツアー",
   },
   {
     id: 6,
@@ -52,5 +57,8 @@ export default [
     description:
       "シェフは、パンデミックの際に孤立した人々に料理のヒントやアドバイスを提供します。 Antoni Porowskiは、レシピを共有するためにInstagramで「QuarEye」と呼ばれるシリーズを立ち上げました。",
     figcaption: "アントニが「Keep Calm-lette.」を作っています",
+    category: "健康の維持",
   },
 ];
+
+export default services;

@@ -1,4 +1,5 @@
 <template>
+  <Navigation />
   <div class="home">
     <section class="hero"></section>
     <section class="hero-text container">
@@ -12,7 +13,7 @@
       <div class="card-container">
         <div class="row">
           <Card
-            v-for="(service, i) in allServices.slice(0, 2)"
+            v-for="(service, i) in allServices.slice(0, 3)"
             :key="i"
             :service="service"
           />
@@ -26,8 +27,12 @@
           この図書館はあなたが興味を持っているかもしれないコンテンツをアーカイブしています
         </h5>
       </div>
+      <div class="button-container">
+        <router-link class="link" :to="{ name: 'サービス紹介' }">
+          <button class="btn btn-secondary">早速見よう</button></router-link
+        >
+      </div>
     </section>
-
     <Footer />
   </div>
 </template>
@@ -36,12 +41,12 @@
 import Card from "@/components/helpers/Card.vue";
 import Footer from "@/components/helpers/Footer.vue";
 import HelloCards from "@/components/helpers/HelloCards.vue";
-
+import Navigation from "@/components/Navigation";
 import services from "@/data/services";
 
 export default {
   name: "Home",
-  components: { HelloCards, Card, Footer },
+  components: { HelloCards, Card, Footer, Navigation },
   data() {
     return {
       allServices: [...services], // All services from json file.
@@ -52,11 +57,16 @@ export default {
 
 <style lang="scss" scoped>
 .card-container {
-  text-align: center !important;
+  text-align: center;
   max-width: 1620px;
   width: 90%;
   margin-right: auto;
   margin-left: auto;
+
+  .row {
+    justify-content: center;
+    align-items: center;
+  }
 
   @media (min-width: 576px) {
     max-width: 540px;
@@ -81,6 +91,10 @@ h5 {
   line-height: 1.6;
 }
 .near-footer {
+  @media (max-width: 768px) {
+    margin: 0;
+  }
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -92,7 +106,6 @@ h5 {
 }
 .text-card {
   margin: 20px 0;
-
   @media (max-width: 625px) {
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
@@ -112,6 +125,7 @@ h5 {
   text-align: center;
   max-width: 100%;
   max-height: 100%;
+  padding-top: 150px;
 }
 
 .hero-text {
@@ -132,17 +146,38 @@ h5 {
       font-size: 35px;
     }
   }
+}
+.button-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
 
-  hr:nth-child(2) {
-    max-width: 365px;
-    margin-bottom: 16px;
-  }
-  hr:nth-child(4) {
-    height: 6px;
-    background-color: #fff;
-    border: none;
-    max-width: 85px;
-    margin-top: 16px;
-  }
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: middle;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.btn-secondary {
+  -webkit-box-shadow: 5px 9px 11px -2px rgba(162, 162, 162, 0.68);
+  box-shadow: 5px 9px 11px -2px rgba(162, 162, 162, 0.68);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7.41' height='12' viewBox='0 0 7.41 12'%3E%3Cpath d='M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z' transform='translate(-8.59 -6)' fill='%23fff'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  width: 180px;
+  height: 50px;
+  border-radius: 30px;
+  color: #fff;
+  background-color: #e63946;
 }
 </style>

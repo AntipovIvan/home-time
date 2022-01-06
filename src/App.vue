@@ -1,18 +1,13 @@
 <template>
   <div class="app">
-    <Navigation />
     <router-view />
   </div>
 </template>
 
 <script>
-import Navigation from "./components/Navigation";
-
 export default {
   name: "App",
-  components: {
-    Navigation,
-  },
+  components: {},
 };
 </script>
 
@@ -21,7 +16,7 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Hiragino Kaku Gothic Std";
+  font-family: "Hiragino Kaku Gothic ProN";
   font-weight: 400;
 }
 
