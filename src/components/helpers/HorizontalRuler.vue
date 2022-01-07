@@ -15,7 +15,7 @@ export default {
 <style lang="scss" scoped>
 hr {
   @media (max-width: 768px) {
-    margin: 2rem 0 2rem 0;
+    margin: 1rem 0 0.5rem 0;
     border: 3px solid #457b9d;
     opacity: 1;
   }

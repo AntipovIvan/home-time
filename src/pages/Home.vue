@@ -12,11 +12,7 @@
     <section>
       <div class="card-container">
         <div class="row">
-          <Card
-            v-for="(service, i) in allServices.slice(0, 3)"
-            :key="i"
-            :service="service"
-          />
+          <Card />
         </div>
       </div>
     </section>
@@ -42,15 +38,12 @@ import Card from "@/components/helpers/Card.vue";
 import Footer from "@/components/helpers/Footer.vue";
 import HelloCards from "@/components/helpers/HelloCards.vue";
 import Navigation from "@/components/Navigation";
-import services from "@/data/services";
 
 export default {
   name: "Home",
   components: { HelloCards, Card, Footer, Navigation },
   data() {
-    return {
-      allServices: [...services], // All services from json file.
-    };
+    return {};
   },
 };
 </script>
@@ -125,7 +118,7 @@ h5 {
   text-align: center;
   max-width: 100%;
   max-height: 100%;
-  padding-top: 150px;
+  padding-top: 100px;
 }
 
 .hero-text {

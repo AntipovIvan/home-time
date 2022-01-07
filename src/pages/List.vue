@@ -19,7 +19,7 @@
   </div>
   <div class="card-container">
     <div class="row">
-      <Card v-for="(service, i) in allServices" :key="i" :service="service" />
+      <Card />
     </div>
   </div>
   <Footer />
@@ -29,22 +29,19 @@
 import Navigation from "@/components/Navigation";
 import Card from "@/components/helpers/Card.vue";
 import Footer from "@/components/helpers/Footer.vue";
-import services from "@/data/services";
 
 export default {
   name: "Home",
   components: { Card, Footer, Navigation },
   data() {
-    return {
-      allServices: [...services], // All services from json file.
-    };
+    return {};
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .intro {
-  padding-top: 150px;
+  padding-top: 120px;
 }
 .title {
   text-align: center;

@@ -1,5 +1,5 @@
 <template>
-  <div class="service-card">
+  <div class="service-card" v-for="service in services" :key="service.name">
     <div class="row">
       <div class="card-title">
         <h4 class="service-title">{{ service.name }}</h4>
@@ -16,27 +16,24 @@
         </div>
       </div>
       <div class="button-container">
-        <button class="btn btn-secondary">詳しく</button>
+        <router-link :to="service.name">
+          <button class="btn btn-secondary">詳しく</button></router-link
+        >
       </div>
     </div>
+    <HorizontalRuler />
   </div>
-  <HorizontalRuler />
 </template>
 
 <script>
+import store from "@/data/store";
 import HorizontalRuler from "@/components/helpers/HorizontalRuler.vue";
-import services from "@/data/services";
 export default {
   components: { HorizontalRuler },
-  props: {
-    service: {
-      type: Object,
-      required: true,
-    },
-  },
+  props: {},
   data() {
     return {
-      allServices: [...services],
+      services: store.services,
     };
   },
   computed: {},
@@ -103,8 +100,8 @@ export default {
 
   .button-container {
     text-align: end;
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    bottom: 10px;
   }
 
   .btn {
