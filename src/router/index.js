@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 
 const routes = [
@@ -10,16 +10,41 @@ const routes = [
   {
     path: "/about",
     name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    component: () => import("@/views/About"),
+  },
+  {
+    path: "/list",
+    name: "List",
+    component: () => import("@/views/List"),
+  },
+  {
+    path: "/chatroom",
+    name: "Chatroom",
+    component: () => import("@/views/Chatroom"),
+  },
+  {
+    path: "/details/:id",
+    name: "ServiceDetails",
+    component: () => import("@/views/ServiceDetails"),
+    props: true,
+  },
+  {
+    path: "/no-image",
+    beforeEnter() {
+      location.href = "https://no-image.co.jp/";
+    },
+    name: "ノーイメージ",
+  },
+  // 404
+  {
+    path: "/:catchAll(.*)",
+    name: "404",
+    component: () => import("@/views/404"),
   },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(process.env.BASE_URL),
   routes,
 });
 
