@@ -1,8 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../pages/Home.vue";
-import About from "../pages/About.vue";
-import List from "../pages/List.vue";
-import Chatroom from "../pages/Chatroom.vue";
+import Home from "../views/Home.vue";
 
 const routes = [
   {
@@ -11,19 +8,25 @@ const routes = [
     component: Home,
   },
   {
-    path: "/",
-    name: "お問い合わせ",
-    component: About,
+    path: "/about",
+    name: "About",
+    component: () => import("@/views/About"),
   },
   {
-    path: "/",
-    name: "サービス紹介",
-    component: List,
+    path: "/list",
+    name: "List",
+    component: () => import("@/views/List"),
   },
   {
-    path: "/",
-    name: "チャットルム",
-    component: Chatroom,
+    path: "/chatroom",
+    name: "Chatroom",
+    component: () => import("@/views/Chatroom"),
+  },
+  {
+    path: "/details/:id",
+    name: "ServiceDetails",
+    component: () => import("@/views/ServiceDetails"),
+    props: true,
   },
   {
     path: "/no-image",
@@ -31,6 +34,12 @@ const routes = [
       location.href = "https://no-image.co.jp/";
     },
     name: "ノーイメージ",
+  },
+  // 404
+  {
+    path: "/:catchAll(.*)",
+    name: "404",
+    component: () => import("@/views/404"),
   },
 ];
 

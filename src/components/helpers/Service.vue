@@ -1,22 +1,33 @@
 <template>
   <div class="service-card" v-for="service in services" :key="service.name">
     <div class="row">
-      <div class="card-title">
+      <div class="service-title">
         <h4 class="service-title">{{ service.name }}</h4>
       </div>
       <div>
-        <img :src="service.image" alt="サービス画像" class="card-img" />
+        <img :src="service.image" alt="サービス画像" class="service-img" />
       </div>
       <div class="content">
-        <div class="card-body">
+        <div class="service-body">
           <p class="figcaption">{{ service.figcaption }}</p>
-          <p class="text-card">
+          <p class="text-service">
             {{ service.description }}
           </p>
         </div>
       </div>
       <div class="button-container">
-        <router-link :to="service.name">
+        <router-link
+          :to="{
+            name: 'ServiceDetails',
+            params: {
+              id: service.id,
+              name: service.name,
+              description: service.description,
+              image: service.image,
+              figcaption: service.figcaption,
+            },
+          }"
+        >
           <button class="btn btn-secondary">詳しく</button></router-link
         >
       </div>
@@ -58,7 +69,7 @@ export default {
     flex-direction: column;
   }
 
-  .card-body {
+  .service-body {
     flex: 1 1 auto;
     padding: 1rem 0rem;
   }
@@ -66,7 +77,7 @@ export default {
     font-size: 0.875rem;
     margin-top: -10px;
   }
-  .text-card {
+  .text-service {
     @media (max-width: 768px) {
       background-color: rgb(255, 255, 255);
       border-radius: 10px;
@@ -92,7 +103,7 @@ export default {
     width: 400px;
   }
 
-  .card-img {
+  .service-img {
     width: 100%;
     max-width: none;
     height: 163px;

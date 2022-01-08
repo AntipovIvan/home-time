@@ -5,14 +5,13 @@
       <router-link class="link" :to="{ name: 'Home' }"
         ><img src="@/assets/logoFooter.png" alt=""
       /></router-link>
-
-      <router-link class="ft-main-item" :to="{ name: 'サービス紹介' }">
+      <router-link class="ft-main-item" :to="{ name: 'List' }">
         <p class="ft-title">サービス紹介</p>
       </router-link>
-      <router-link class="ft-main-item" :to="{ name: 'チャットルム' }">
+      <router-link class="ft-main-item" :to="{ name: 'Chatroom' }">
         <p class="ft-title">チャットルーム</p>
       </router-link>
-      <router-link class="ft-main-item" :to="{ name: 'お問い合わせ' }">
+      <router-link class="ft-main-item" :to="{ name: 'About' }">
         <p class="ft-title">お問い合わせ</p>
       </router-link>
       <router-link class="ft-main-item" :to="{ name: 'ノーイメージ' }">
@@ -30,9 +29,11 @@
 
 <script>
 export default {
-  name: "footer",
+  name: "Footer",
   components: {},
-  data() {},
+  data() {
+    return {};
+  },
   created() {},
   mounted() {},
   methods: {},

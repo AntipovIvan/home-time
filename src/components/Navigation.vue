@@ -8,17 +8,17 @@
       </div>
       <ul v-show="!mobile" class="navigation">
         <li class="li2">
-          <router-link class="link" :to="{ name: 'サービス紹介' }"
+          <router-link class="link" :to="{ name: 'List' }"
             >サービス紹介</router-link
           >
         </li>
         <li class="li3">
-          <router-link class="link" :to="{ name: 'チャットルム' }"
+          <router-link class="link" :to="{ name: 'Chatroom' }"
             >チャットルム</router-link
           >
         </li>
         <li class="li4">
-          <router-link class="link" :to="{ name: 'お問い合わせ' }"
+          <router-link class="link" :to="{ name: 'About' }"
             >お問い合わせ</router-link
           >
         </li>
@@ -41,34 +41,34 @@
           </li>
           <hr />
           <li class="li2">
-            <router-link class="link" :to="{ name: 'お問い合わせ' }"
+            <router-link class="link" :to="{ name: 'About' }"
               >お問い合わせ</router-link
             >
           </li>
           <hr />
           <li class="li3">
-            <router-link class="link" :to="{ name: 'チャットルム' }"
+            <router-link class="link" :to="{ name: 'Chatroom' }"
               >チャットルム</router-link
             >
           </li>
           <hr />
           <li class="li4">
-            <router-link class="link" :to="{ name: 'サービス紹介' }"
+            <router-link class="link" :to="{ name: 'List' }"
               >サービス紹介</router-link
             >
           </li>
           <hr />
           <ul class="link-sort">
-            <router-link :to="{ name: 'サービス紹介' }"
+            <router-link :to="{ name: 'List' }"
               ><img src="@/assets/art.png" alt=""
             /></router-link>
-            <router-link :to="{ name: 'サービス紹介' }"
+            <router-link :to="{ name: 'List' }"
               ><img src="@/assets/Healthy.png" alt=""
             /></router-link>
-            <router-link :to="{ name: 'サービス紹介' }"
+            <router-link :to="{ name: 'List' }"
               ><img src="@/assets/courses.png" alt=""
             /></router-link>
-            <router-link :to="{ name: 'サービス紹介' }"
+            <router-link :to="{ name: 'List' }"
               ><img src="@/assets/other.png" alt=""
             /></router-link>
           </ul>

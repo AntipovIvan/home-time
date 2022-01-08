@@ -10,21 +10,21 @@
     </section>
     <HelloCards />
     <section>
-      <div class="card-container">
+      <div class="service-container">
         <div class="row">
-          <Card />
+          <Service />
         </div>
       </div>
     </section>
     <section class="near-footer">
       <h4>自由な時間の質を高めよう。</h4>
-      <div class="text-card">
+      <div class="text-service">
         <h5>
           この図書館はあなたが興味を持っているかもしれないコンテンツをアーカイブしています
         </h5>
       </div>
       <div class="button-container">
-        <router-link class="link" :to="{ name: 'サービス紹介' }">
+        <router-link class="link" :to="{ name: 'List' }">
           <button class="btn btn-secondary">早速見よう</button></router-link
         >
       </div>
@@ -34,14 +34,13 @@
 </template>
 
 <script>
-import Card from "@/components/helpers/Card.vue";
+import Service from "@/components/helpers/Service.vue";
 import Footer from "@/components/helpers/Footer.vue";
 import HelloCards from "@/components/helpers/HelloCards.vue";
-import Navigation from "@/components/Navigation";
 
 export default {
   name: "Home",
-  components: { HelloCards, Card, Footer, Navigation },
+  components: { HelloCards, Service, Footer },
   data() {
     return {};
   },
@@ -49,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card-container {
+.service-container {
   text-align: center;
   max-width: 1620px;
   width: 90%;
@@ -97,7 +96,7 @@ h5 {
     flex-direction: row;
   }
 }
-.text-card {
+.text-service {
   margin: 20px 0;
   @media (max-width: 625px) {
     background-color: rgb(255, 255, 255);

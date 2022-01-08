@@ -1,5 +1,4 @@
 <template>
-  <Navigation />
   <div class="intro">
     <div class="title">
       <h2>サービス紹介</h2>
@@ -17,22 +16,21 @@
     </div>
     <hr />
   </div>
-  <div class="card-container">
+  <div class="service-container">
     <div class="row">
-      <Card />
+      <Service />
     </div>
   </div>
   <Footer />
 </template>
 
 <script>
-import Navigation from "@/components/Navigation";
-import Card from "@/components/helpers/Card.vue";
+import Service from "@/components/helpers/Service.vue";
 import Footer from "@/components/helpers/Footer.vue";
 
 export default {
   name: "Home",
-  components: { Card, Footer, Navigation },
+  components: { Service, Footer },
   data() {
     return {};
   },
@@ -81,7 +79,7 @@ hr {
     max-width: 1620px;
   }
 }
-.card-container {
+.service-container {
   text-align: center;
   max-width: 1620px;
   width: 90%;
