@@ -29,6 +29,7 @@
         >
       </div>
     </section>
+    <back-to-top></back-to-top>
     <Footer />
   </div>
 </template>
@@ -37,10 +38,11 @@
 import Service from "@/components/helpers/Service.vue";
 import Footer from "@/components/helpers/Footer.vue";
 import HelloCards from "@/components/helpers/HelloCards.vue";
+import BackToTop from "@/components/BackToTop.vue";
 
 export default {
   name: "Home",
-  components: { HelloCards, Service, Footer },
+  components: { HelloCards, Service, Footer, BackToTop },
   data() {
     return {};
   },

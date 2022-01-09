@@ -2,8 +2,8 @@
   <section>
     <div class="heading">
       <h1>{{ name }}</h1>
-      <hr />
     </div>
+    <hr />
     <div class="description">
       <img :src="image" class="img" />
       <div class="main">
@@ -27,6 +27,7 @@
       <!-- </router-link
         > -->
     </div>
+    <hr />
   </section>
   <Footer />
 </template>
@@ -47,8 +48,18 @@ export default {
 <style lang="scss" scoped>
 section {
   margin-bottom: 200px;
+  hr {
+    @media (min-width: 768px) {
+      margin: 4.5rem 0 4.5rem 0;
+      border: 3px solid #457b9d;
+      opacity: 1;
+    }
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
   .heading {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     padding-top: 140px;
     text-align: center;
     justify-content: center;
@@ -56,16 +67,6 @@ section {
     @media (max-width: 768px) {
       margin-bottom: 20px;
       padding-top: 120px;
-    }
-    hr {
-      @media (min-width: 768px) {
-        margin: 1rem 0 0.5rem 0;
-        border: 3px solid #457b9d;
-        opacity: 1;
-      }
-      @media (max-width: 768px) {
-        display: none;
-      }
     }
   }
   .description {

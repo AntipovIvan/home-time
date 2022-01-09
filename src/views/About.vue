@@ -1,106 +1,179 @@
 <template>
-  <div class="about-card">
-    <div class="card-title">
-      <img
-        src="https://i.pinimg.com/originals/d3/69/d9/d369d9056795f553e244da66e8297cca.png"
-        alt="cardImage"
-        class="cardImage"
-      />
-      <div class="title-text-content">
-        <p>About me</p>
-        <h2>Johnathan Doe</h2>
+  <section>
+    <div class="about">
+      <img src="../assets/otoiawasePC.png" alt="" class="img" />
+      <div class="main">
+        <div class="form">
+          <form>
+            <h4>お問い合わせ</h4>
+            <input type="text" placeholder="私の名前" required v-model="text" />
+            <input
+              type="email"
+              placeholder="メールアドレス"
+              required
+              v-model="email"
+            />
+            <input
+              class="request-body"
+              type="text"
+              placeholder="これについて"
+              required
+              v-model="request"
+            />
+            <div class="terms">
+              <input type="checkbox" v-model="terms" required />
+              <label>Accept Terms and Conditions</label>
+            </div>
+          </form>
+        </div>
+        <div class="button-container">
+          <router-link class="link" :to="{ name: 'List' }">
+            <button class="btn btn-secondary">送信</button></router-link
+          >
+        </div>
       </div>
     </div>
-    <div class="card-content">
-      <table style="width: 100%">
-        <tr>
-          <th>Requirement</th>
-          <th>Solution</th>
-        </tr>
-        <tr>
-          <td>Design</td>
-          <td>PhotoShop, Figma, Canva, Adobe XD</td>
-        </tr>
-      </table>
-
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius
-        consequatur, libero, natus, autem hic saepe exercitationem expedita
-        alias corporis quisquam reiciendis ab quaerat rerum itaque animi
-        repudiandae dolor in fugit ratione inventore molestiae harum accusantium
-        dignissimos. Id praesentium quisquam asperiores ullam quaerat totam,
-        voluptates esse vero repellendus amet, officiis inventore.
-      </p>
-    </div>
-  </div>
+  </section>
+  <Footer />
 </template>
 
 <script>
+import Footer from "@/components/helpers/Footer.vue";
 export default {
   name: "About",
-  components: {},
+  components: { Footer },
+  data() {
+    return {
+      text: "",
+      email: "",
+      request: "",
+      terms: false,
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.about-card {
-  min-height: calc(100vh - 150px);
-  background: #333;
-  padding: 3em;
-  border-radius: 10px;
-  color: white;
-}
-.about-card .card-title {
-  display: flex;
-  align-items: center;
-  background: #222;
-  border-radius: 10px;
-}
-.about-card .card-title .cardImage {
-  height: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  margin: 0 30px;
-}
-.about-card .title-text-content p {
-  margin-bottom: 0;
-  color: #d2d2d2;
-}
-.about-card .title-text-content h2 {
-  margin-top: 0;
-}
-
-.card-content p {
-  line-height: 1.5;
-  margin: 30px auto;
-}
-
-table {
-  border-spacing: 0px;
-  margin: 50px auto;
-}
-table tr th,
-table tr td {
-  border: 1px solid white;
-  border-top: none;
-  padding: 10px;
-  text-align: center;
-}
-table tr th:first-of-type,
-table tr td:first-of-type {
-  border-left: none;
-}
-table tr th:nth-of-type(2),
-table tr td:nth-of-type(2) {
-  border-right: none;
-}
-
-@media screen and (max-width: 530px) {
-  .about-card {
-    padding: 1em;
+section {
+  padding-top: 70px;
+  @media screen and (max-width: 750px) {
+    padding-top: 50px;
   }
-  .card-title h2 {
-    font-size: 1.3em;
+  .about {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: flex-start;
+    @media screen and (max-width: 700px) {
+      flex-direction: column;
+    }
+    .main {
+      flex: 70%;
+      max-width: 50%;
+      padding: 10px 10px;
+      background-color: #edf6ff;
+      border: none;
+      transition: all 0.5s;
+      @media screen and (max-width: 886px) {
+        margin-top: 15px;
+      }
+      @media screen and (max-width: 700px) {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .form {
+        background-color: rgb(255, 255, 255);
+        justify-content: center;
+        text-align: center;
+        max-width: 550px;
+        max-height: 620px;
+        margin: 20vh auto 20vh auto;
+        padding: 20px;
+        border-radius: 30px;
+        ::placeholder {
+          color: rgb(201, 201, 201);
+          font-size: 16px;
+        }
+        @media screen and (max-width: 700px) {
+          margin: 10px auto 100px auto;
+        }
+        h3 {
+          line-height: 1.5em;
+        }
+        label {
+          color: #aaa;
+          display: inline-block;
+          margin: 25px 0 15px;
+          font-size: 0.6em;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: bold;
+        }
+        input,
+        select {
+          display: block;
+          padding: 10px 6px;
+          width: 100%;
+          box-sizing: border-box;
+          border: none;
+          border-bottom: 1px solid #ddd;
+          color: #555;
+        }
+        .request-body {
+        }
+        input[type="checkbox"] {
+          display: inline-block;
+          width: 16px;
+          margin: 0 10px 0 0;
+          position: relative;
+          top: 2px;
+        }
+      }
+      .button-container {
+        text-align: center;
+        margin-top: -70px;
+      }
+
+      .btn {
+        display: inline-block;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: middle;
+        text-decoration: none;
+        vertical-align: middle;
+        cursor: pointer;
+        background-color: transparent;
+        border: 1px solid transparent;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        border-radius: 0.25rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+      .btn-secondary {
+        -webkit-box-shadow: 5px 9px 11px -2px rgba(162, 162, 162, 0.68);
+        box-shadow: 5px 9px 11px -2px rgba(162, 162, 162, 0.68);
+        background-image: url("../assets/submit-btn.png");
+        background-repeat: no-repeat;
+        background-position: left 10px center;
+        background-size: 25%;
+        width: 180px;
+        height: 50px;
+        border-radius: 30px;
+        color: #fff;
+        background-color: #e63946;
+      }
+    }
+    .img {
+      flex: 30%;
+      max-width: 50%;
+      height: auto;
+      @media screen and (max-width: 700px) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
   }
 }
 </style>
