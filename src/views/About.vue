@@ -120,8 +120,6 @@ section {
           border-bottom: 1px solid #ddd;
           color: #555;
         }
-        .request-body {
-        }
         input[type="checkbox"] {
           display: inline-block;
           width: 16px;

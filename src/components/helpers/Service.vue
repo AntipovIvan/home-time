@@ -60,10 +60,9 @@ export default {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   @media (max-width: 576px) {
     max-width: 330px;
-    margin: 0 1rem 0 1rem;
+    margin: 1.5rem 1rem 0 1rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -78,6 +77,9 @@ export default {
     margin-top: -10px;
   }
   .text-service {
+    font-size: 1.1rem;
+    text-align: left;
+    min-height: 160px;
     @media (max-width: 768px) {
       background-color: rgb(255, 255, 255);
       border-radius: 10px;
@@ -86,7 +88,7 @@ export default {
       transition: all 0.5s;
       width: 45vh;
       padding: 20px 40px;
-      margin-left: -4vh;
+      margin-left: -3.5vh;
       height: 100%;
     }
   }
