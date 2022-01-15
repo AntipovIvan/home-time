@@ -44,11 +44,6 @@ export default {
       type: [String, Number],
       default: 0,
     },
-
-    bottom: {
-      type: String,
-      default: "40px",
-    },
     scrollFn: {
       type: Function,
       // eslint-disable-next-line no-unused-vars
@@ -59,6 +54,7 @@ export default {
     return {
       visible: false,
       right: String,
+      bottom: String,
     };
   },
   mounted() {
@@ -112,9 +108,11 @@ export default {
   z-index: 1000;
   @media (min-width: 500px) {
     right: 30px;
+    bottom: 140px;
   }
   @media (max-width: 500px) {
-    left: 30px;
+    left: 20px;
+    bottom: 120px;
   }
 }
 

@@ -29,15 +29,17 @@
     </div>
     <hr />
   </section>
+  <BackToTop />
   <Footer />
 </template>
 
 <script>
 import Footer from "@/components/helpers/Footer.vue";
+import BackToTop from "@/components/BackToTop.vue";
 
 export default {
   name: "Details",
-  components: { Footer },
+  components: { Footer, BackToTop },
   props: ["id", "name", "description", "image", "figcaption"],
   data() {
     return {};
@@ -66,7 +68,7 @@ section {
     align-content: center;
     @media (max-width: 768px) {
       margin-bottom: 20px;
-      padding-top: 120px;
+      padding: 120px 20px 0 20px;
     }
   }
   .description {

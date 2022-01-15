@@ -21,16 +21,18 @@
       <Service />
     </div>
   </div>
+  <BackToTop />
   <Footer />
 </template>
 
 <script>
 import Service from "@/components/helpers/Service.vue";
 import Footer from "@/components/helpers/Footer.vue";
+import BackToTop from "@/components/BackToTop.vue";
 
 export default {
   name: "Home",
-  components: { Service, Footer },
+  components: { Service, Footer, BackToTop },
   data() {
     return {};
   },
