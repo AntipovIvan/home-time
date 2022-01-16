@@ -38,7 +38,7 @@ export default {
     },
     visibleoffset: {
       type: [String, Number],
-      default: 200,
+      default: 300,
     },
     visibleoffsetbottom: {
       type: [String, Number],
