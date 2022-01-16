@@ -1,11 +1,10 @@
 <template>
-  <Navigation />
   <div class="home">
     <section class="hero"></section>
     <section class="hero-text container">
       <div>
-        <h2>あなたにあう趣味を探します</h2>
-        <h2>おうちで楽しく過ごすためのサービスをご覧ください。</h2>
+        <p>あなたにあう趣味を探します</p>
+        <p>おうちで楽しく過ごすためのサービスをご覧ください。</p>
       </div>
     </section>
     <HelloCards />
@@ -18,8 +17,8 @@
             :key="service.category"
           >
             <div class="row">
-              <div class="service-title">
-                <h4 class="service-title">{{ service.name }}</h4>
+              <div>
+                <p class="service-title">{{ service.name }}</p>
               </div>
               <div>
                 <img
@@ -35,22 +34,6 @@
                     {{ service.description }}
                   </p>
                 </div>
-              </div>
-              <div class="btn-container">
-                <router-link
-                  :to="{
-                    name: 'ServiceDetails',
-                    params: {
-                      id: service.id,
-                      name: service.name,
-                      description: service.description,
-                      image: service.image,
-                      figcaption: service.figcaption,
-                    },
-                  }"
-                >
-                  <button class="btn btn-secondary">詳しく</button></router-link
-                >
               </div>
             </div>
             <HorizontalRuler />
@@ -104,6 +87,7 @@ export default {
   width: 90%;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 30px;
 
   .row {
     justify-content: center;
@@ -131,7 +115,6 @@ export default {
 }
 .service-card {
   max-width: 330px;
-  min-height: 500px;
   margin: 1rem;
   position: relative;
   display: flex;
@@ -173,7 +156,7 @@ export default {
     margin-bottom: 1rem;
   }
   .service-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin: 0;
   }
   .content {
@@ -226,9 +209,9 @@ h5 {
 }
 .near-footer {
   @media (max-width: 768px) {
-    margin: 0;
+    margin-top: 30px;
   }
-  margin-top: 50px;
+
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -273,11 +256,11 @@ h5 {
     padding-bottom: 4px;
   }
 
-  h2 {
-    font-size: 24px;
+  p {
+    font-size: 16px;
     margin: 20px 0;
     @media (min-width: 550px) {
-      font-size: 35px;
+      font-size: 25px;
     }
   }
 }

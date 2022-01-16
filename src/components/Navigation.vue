@@ -2,7 +2,7 @@
   <header :class="{ 'scrolled-nav': scrolledNav }">
     <nav>
       <div class="branding">
-        <router-link class="link" :to="{ name: 'Home' }"
+        <router-link :to="{ name: 'Home' }"
           ><img src="@/assets/logo.png" alt=""
         /></router-link>
       </div>
@@ -58,20 +58,6 @@
             >
           </li>
           <hr />
-          <ul class="link-sort">
-            <router-link :to="{ name: 'List' }"
-              ><img src="@/assets/art.png" alt=""
-            /></router-link>
-            <router-link :to="{ name: 'List' }"
-              ><img src="@/assets/Healthy.png" alt=""
-            /></router-link>
-            <router-link :to="{ name: 'List' }"
-              ><img src="@/assets/courses.png" alt=""
-            /></router-link>
-            <router-link :to="{ name: 'List' }"
-              ><img src="@/assets/other.png" alt=""
-            /></router-link>
-          </ul>
         </ul>
       </transition>
     </nav>
@@ -133,7 +119,7 @@ export default {
 <style lang="scss" scoped>
 header {
   background-color: #457b9d;
-  z-index: 10;
+  z-index: 15;
   width: 100%;
   position: fixed;
   transition: 0.5s ease all;
@@ -173,6 +159,10 @@ header {
       color: white;
       list-style: none;
       text-decoration: none;
+      &:active {
+        text-decoration: double;
+        border-color: rgb(255, 255, 255);
+      }
     }
 
     li {
@@ -183,10 +173,10 @@ header {
     .link {
       font-size: 14px;
       transition: 0.5s ease all;
-      border-bottom: 1px solid transparent;
+      border-bottom: 3px solid transparent;
       &:hover {
-        color: rgb(0, 0, 0);
-        border-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        border-color: rgb(255, 255, 255);
       }
     }
 

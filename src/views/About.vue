@@ -20,10 +20,6 @@
               required
               v-model="request"
             />
-            <div class="terms">
-              <input type="checkbox" v-model="terms" required />
-              <label>Accept Terms and Conditions</label>
-            </div>
           </form>
         </div>
         <div class="button-container">

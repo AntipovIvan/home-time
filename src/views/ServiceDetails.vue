@@ -7,27 +7,20 @@
     <div class="description">
       <img :src="image" class="img" />
       <div class="main">
-        <h3>{{ description }}</h3>
+        <p>{{ description }}</p>
+      </div>
+    </div>
+    <div class="description2">
+      <img :src="image2" class="img2" />
+      <div class="main2">
+        <p>{{ description2 }}</p>
       </div>
     </div>
     <div class="button-container">
-      <!-- <router-link
-          :to="{
-            name: 'ServiceDetails',
-            params: {
-              id: service.id,
-              name: service.name,
-              description: service.description,
-              image: service.image,
-              figcaption: service.figcaption,
-            },
-          }"
-        > -->
-      <button class="btn btn-secondary">やってみます</button>
-      <!-- </router-link
-        > -->
+      <button class="btn btn-secondary" v-on:click="locate">
+        やってみます
+      </button>
     </div>
-    <hr />
   </section>
   <BackToTop />
   <Footer />
@@ -40,16 +33,31 @@ import BackToTop from "@/components/BackToTop.vue";
 export default {
   name: "Details",
   components: { Footer, BackToTop },
-  props: ["id", "name", "description", "image", "figcaption"],
+  props: [
+    "id",
+    "name",
+    "description",
+    "image",
+    "figcaption",
+    "href",
+    "image2",
+    "description2",
+  ],
+
   data() {
     return {};
+  },
+  methods: {
+    locate() {
+      location.href = this.href;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 section {
-  margin-bottom: 200px;
+  margin-bottom: 70px;
   hr {
     @media (min-width: 768px) {
       margin: 4.5rem 0 4.5rem 0;
@@ -82,6 +90,9 @@ section {
     }
     .main {
       flex: 70%;
+      display: flex;
+      text-align: left;
+      align-items: center;
       max-width: 550px;
       max-height: 300px;
       padding: 20px 40px;
@@ -93,16 +104,64 @@ section {
       @media screen and (max-width: 886px) {
         margin-top: 15px;
       }
-      h3 {
+      p {
         line-height: 1.5em;
+        font-size: 24px;
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
       }
     }
     .img {
       width: 100%;
+      height: 250px;
       margin-right: -10px;
       max-width: 450px;
       max-height: 300px;
       height: auto;
+      flex: 30%;
+    }
+  }
+  .description2 {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    @media screen and (max-width: 400px) {
+      flex-direction: column;
+    }
+    .main2 {
+      flex: 70%;
+      display: flex;
+      text-align: left;
+      align-items: center;
+      max-width: 550px;
+      max-height: 300px;
+      padding: 20px 40px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 20px;
+      border: none;
+      box-shadow: 3px 3px 3px 4px rgb(233 233 233);
+      transition: all 0.5s;
+      @media screen and (max-width: 886px) {
+        margin-top: 15px;
+      }
+      p {
+        line-height: 1.5em;
+        font-size: 24px;
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
+      }
+    }
+    .img2 {
+      height: 250px;
+      width: 100%;
+      margin-right: -10px;
+      max-width: 450px;
+      max-height: 300px;
       flex: 30%;
     }
   }

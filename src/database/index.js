@@ -11,6 +11,8 @@ const config = {
   messagingSenderId: "528559680367",
   appId: "1:528559680367:web:bdb4c6685bcdd3d862d69a",
   measurementId: "G-T7TY36DERS",
+  databaseURL:
+    "https://senmon-project-default-rtdb.asia-southeast1.firebasedatabase.app/",
 };
 
 initializeApp(config);

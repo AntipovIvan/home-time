@@ -40,12 +40,12 @@
 
   <div
     class="service-card"
-    v-for="services in filteredPeople"
+    v-for="services in filteredServices"
     :key="services.category"
   >
     <div class="row">
       <div class="service-title">
-        <h4 class="service-title">{{ services.name }}</h4>
+        <p class="service-title">{{ services.name }}</p>
       </div>
       <div>
         <img :src="services.image" alt="サービス画像" class="service-img" />
@@ -68,6 +68,9 @@
               description: services.description,
               image: services.image,
               figcaption: services.figcaption,
+              href: services.href,
+              image2: services.image2,
+              description2: services.description2,
             },
           }"
         >
@@ -96,8 +99,9 @@ export default {
     };
   },
   computed: {
-    filteredPeople() {
+    filteredServices() {
       var category = this.selectedCategory;
+      console.log(this.selectedCategory);
       if (category === "All") {
         return this.services;
       } else {
@@ -124,6 +128,9 @@ export default {
     height: 350px;
     margin-top: 40px;
   }
+  @media (max-width: 769px) {
+    display: none;
+  }
   label {
     padding-top: 10px;
     margin: 0 40px;
@@ -146,7 +153,7 @@ export default {
   flex-direction: column;
   @media (max-width: 576px) {
     max-width: 330px;
-    margin: 1.5rem 1rem 0 1rem;
+    margin: 0 1rem 0 1rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -181,8 +188,11 @@ export default {
     margin-bottom: 1rem;
   }
   .service-title {
-    font-size: 1.5rem;
-    margin: 0;
+    font-size: 20px;
+    text-align: left;
+    display: flex;
+    align-items: flex-end;
+    min-height: 90px;
   }
   .content {
     flex: 0 0 auto;

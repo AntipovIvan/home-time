@@ -1,37 +1,21 @@
 <template>
   <div class="window-container" :class="{ 'window-mobile': isDevice }">
     <form v-if="addNewRoom" @submit.prevent="createRoom">
-      <input v-model="addRoomUsername" type="text" placeholder="Add username" />
+      <input
+        v-model="addRoomUsername"
+        type="text"
+        placeholder="ルームのタイトル"
+      />
       <button type="submit" :disabled="disableForm || !addRoomUsername">
-        Create Room
+        ルームを作る
       </button>
-      <button class="button-cancel" @click="addNewRoom = false">Cancel</button>
-    </form>
-
-    <form v-if="inviteRoomId" @submit.prevent="addRoomUser">
-      <input v-model="invitedUsername" type="text" placeholder="Add username" />
-      <button type="submit" :disabled="disableForm || !invitedUsername">
-        Add User
+      <button class="button-cancel" @click="addNewRoom = false">
+        キャンセル
       </button>
-      <button class="button-cancel" @click="inviteRoomId = null">Cancel</button>
-    </form>
-
-    <form v-if="removeRoomId" @submit.prevent="deleteRoomUser">
-      <select v-model="removeUserId">
-        <option default value="">Select User</option>
-        <option v-for="user in removeUsers" :key="user._id" :value="user._id">
-          {{ user.username }}
-        </option>
-      </select>
-      <button type="submit" :disabled="disableForm || !removeUserId">
-        Remove User
-      </button>
-      <button class="button-cancel" @click="removeRoomId = null">Cancel</button>
     </form>
 
     <chat-window
       :height="screenHeight"
-      :theme="theme"
       :styles="styles"
       :current-user-id="currentUserId"
       :room-id="roomId"
@@ -60,9 +44,6 @@
       @typing-message="typingMessage"
       @toggle-rooms-list="$emit('show-demo-options', $event.opened)"
     >
-      <!-- <template #room-header="{ room }">
-				{{ room.roomName }}
-			</template> -->
     </chat-window>
   </div>
 </template>
@@ -72,11 +53,8 @@ import * as firestoreService from "@/database/firestore";
 import * as firebaseService from "@/database/firebase";
 import * as storageService from "@/database/storage";
 import { parseTimestamp, formatTimestamp } from "@/utils/dates";
-
-// import ChatWindow, { Rooms } from 'vue-advanced-chat'
 import ChatWindow from "vue-advanced-chat";
 import "vue-advanced-chat/dist/vue-advanced-chat.css";
-// import ChatWindow from './../../dist/vue-advanced-chat.umd.min.js'
 
 export default {
   components: {
@@ -85,7 +63,6 @@ export default {
 
   props: {
     currentUserId: { type: String, required: true },
-    theme: { type: String, required: true },
     isDevice: { type: Boolean, required: true },
   },
 
@@ -121,16 +98,8 @@ export default {
       removeRoomId: null,
       removeUserId: "",
       removeUsers: [],
-      roomActions: [
-        { name: "inviteUser", title: "Invite User" },
-        { name: "removeUser", title: "Remove User" },
-        { name: "deleteRoom", title: "Delete Room" },
-      ],
-      menuActions: [
-        { name: "inviteUser", title: "Invite User" },
-        { name: "removeUser", title: "Remove User" },
-        { name: "deleteRoom", title: "Delete Room" },
-      ],
+      roomActions: [{ name: "deleteRoom", title: "ルームを削除" }],
+      menuActions: [{ name: "deleteRoom", title: "ルームを削除" }],
       messageSelectionActions: [{ name: "deleteMessages", title: "Delete" }],
       styles: { container: { borderRadius: "4px" } },
       templatesText: [
@@ -147,7 +116,6 @@ export default {
           text: "This is the second action",
         },
       ],
-      // ,dbRequestCount: 0
     };
   },
 
@@ -206,7 +174,6 @@ export default {
       );
 
       const rooms = await firestoreService.getRooms(query);
-      // this.incrementDbCounter('Fetch Rooms', rooms.size)
 
       this.roomsLoaded = rooms.empty || rooms.size < this.roomsPerPage;
 
@@ -223,7 +190,6 @@ export default {
         });
       });
 
-      // this.incrementDbCounter('Fetch Room Users', roomUserIds.length)
       const rawUsers = [];
       roomUserIds.forEach((userId) => {
         const promise = firestoreService
@@ -259,7 +225,7 @@ export default {
         const roomAvatar =
           roomContacts.length === 1 && roomContacts[0].avatar
             ? roomContacts[0].avatar
-            : require("@/assets/logo.png");
+            : require("@/assets/chatIcon.png");
 
         formattedRooms.push({
           ...room,
@@ -284,16 +250,13 @@ export default {
         this.roomsLoadedCount = 0;
       }
 
-      this.listenUsersOnlineStatus(formattedRooms);
       this.listenRooms(query);
-      // setTimeout(() => console.log('TOTAL', this.dbRequestCount), 2000)
     },
 
     listenLastMessage(room) {
       const listener = firestoreService.firestoreListener(
         firestoreService.lastMessageQuery(room.roomId),
         (messages) => {
-          // this.incrementDbCounter('Listen Last Room Message', messages.size)
           messages.forEach((message) => {
             const lastMessage = this.formatLastMessage(message.data(), room);
             const roomIndex = this.rooms.findIndex(
@@ -366,7 +329,6 @@ export default {
       firestoreService
         .getMessages(room.roomId, this.messagesPerPage, this.lastLoadedMessage)
         .then((messages) => {
-          // this.incrementDbCounter('Fetch Room Messages', messages.size)
           if (this.selectedRoom !== room.roomId) return;
 
           if (messages.empty || messages.docs.length < this.messagesPerPage) {
@@ -392,7 +354,6 @@ export default {
               this.previousLastLoadedMessage
             ),
             (snapshots) => {
-              // this.incrementDbCounter('Listen Room Messages', snapshots.size)
               this.listenMessages(snapshots, room);
             }
           );
@@ -443,7 +404,6 @@ export default {
           username: room.users.find(
             (user) => message.data().sender_id === user._id
           )?.username,
-          // avatar: senderUser ? senderUser.avatar : null,
           distributed: true,
         },
       };
@@ -673,10 +633,6 @@ export default {
 
     menuActionHandler({ action, roomId }) {
       switch (action.name) {
-        case "inviteUser":
-          return this.inviteUser(roomId);
-        case "removeUser":
-          return this.removeUser(roomId);
         case "deleteRoom":
           return this.deleteRoom(roomId);
       }
@@ -725,7 +681,6 @@ export default {
 
     async listenRooms(query) {
       const listener = firestoreService.firestoreListener(query, (rooms) => {
-        // this.incrementDbCounter('Listen Rooms Typing Users', rooms.size)
         rooms.forEach((room) => {
           const foundRoom = this.rooms.find((r) => r.roomId === room.id);
           if (foundRoom) {
@@ -735,34 +690,6 @@ export default {
         });
       });
       this.roomsListeners.push(listener);
-    },
-
-    listenUsersOnlineStatus(rooms) {
-      rooms.forEach((room) => {
-        room.users.forEach((user) => {
-          const listener = firebaseService.firebaseListener(
-            firebaseService.userStatusRef(user._id),
-            (snapshot) => {
-              if (!snapshot || !snapshot.val()) return;
-
-              const lastChanged = formatTimestamp(
-                new Date(snapshot.val().lastChanged),
-                new Date(snapshot.val().lastChanged)
-              );
-
-              user.status = { ...snapshot.val(), lastChanged };
-
-              const roomIndex = this.rooms.findIndex(
-                (r) => room.roomId === r.roomId
-              );
-
-              this.rooms[roomIndex] = room;
-              this.rooms = [...this.rooms];
-            }
-          );
-          this.roomsListeners.push(listener);
-        });
-      });
     },
 
     addRoom() {
@@ -863,12 +790,6 @@ export default {
       this.removeRoomId = null;
       this.removeUserId = "";
     },
-
-    // ,incrementDbCounter(type, size) {
-    // 	size = size || 1
-    // 	this.dbRequestCount += size
-    // 	console.log(type, size)
-    // }
   },
 };
 </script>
@@ -879,13 +800,15 @@ export default {
 }
 
 .window-mobile {
+  margin-top: -13px;
   form {
-    padding: 0 10px 10px;
+    padding: 20px 15px;
   }
 }
 
 form {
-  padding-bottom: 20px;
+  background-color: #edf1f3;
+  padding: 20px 15px;
 }
 
 input {
@@ -904,7 +827,7 @@ input {
 }
 
 button {
-  background: #1976d2;
+  background: #e63946;
   color: #fff;
   outline: none;
   cursor: pointer;
@@ -926,7 +849,7 @@ button {
 
   &:disabled {
     cursor: initial;
-    background: #c6c9cc;
+    background: #b9b9b8;
     opacity: 0.6;
   }
 }
