@@ -14,7 +14,7 @@
           <div
             class="service-card"
             v-for="service in services.slice(0, 3)"
-            :key="service.category"
+            :key="service.id"
           >
             <div class="row">
               <div>
@@ -239,7 +239,7 @@ h5 {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  max-width: 100%;
+  max-width: 80%;
   max-height: 100%;
   padding-top: 100px;
 }

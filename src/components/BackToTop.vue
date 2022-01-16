@@ -38,7 +38,7 @@ export default {
     },
     visibleoffset: {
       type: [String, Number],
-      default: 600,
+      default: 200,
     },
     visibleoffsetbottom: {
       type: [String, Number],
@@ -112,7 +112,7 @@ export default {
   }
   @media (max-width: 500px) {
     left: 20px;
-    bottom: 120px;
+    bottom: 200px;
   }
 }
 
@@ -124,6 +124,11 @@ export default {
   line-height: 50px;
   text-align: center;
   width: 70px;
+  @media (max-width: 625px) {
+    height: 45px;
+    width: 55px;
+    line-height: 45px;
+  }
 }
 
 .vue-back-to-top .default span {
@@ -142,5 +147,9 @@ export default {
   fill: #ffffff;
   color: white;
   overflow: hidden;
+  @media (max-width: 625px) {
+    width: 1.9em;
+    height: 1.9em;
+  }
 }
 </style>

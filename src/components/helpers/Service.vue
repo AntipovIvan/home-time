@@ -41,7 +41,7 @@
   <div
     class="service-card"
     v-for="services in filteredServices"
-    :key="services.category"
+    :key="services.id"
   >
     <div class="row">
       <div class="service-title">
@@ -101,7 +101,6 @@ export default {
   computed: {
     filteredServices() {
       var category = this.selectedCategory;
-      console.log(this.selectedCategory);
       if (category === "All") {
         return this.services;
       } else {

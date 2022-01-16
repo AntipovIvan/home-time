@@ -13,7 +13,7 @@
               required
               v-model="email"
             />
-            <input
+            <textarea
               class="request-body"
               type="text"
               placeholder="これについて"
@@ -24,7 +24,9 @@
         </div>
         <div class="button-container">
           <router-link class="link" :to="{ name: 'List' }">
-            <button class="btn btn-secondary">送信</button></router-link
+            <button class="btn btn-secondary" v-on:click.stop.prevent="locate">
+              送信
+            </button></router-link
           >
         </div>
       </div>
@@ -45,6 +47,13 @@ export default {
       request: "",
       terms: false,
     };
+  },
+  methods: {
+    locate() {
+      location.href = this.href;
+      let newTab = window.open();
+      newTab.location.href = this.href;
+    },
   },
 };
 </script>
@@ -84,7 +93,7 @@ section {
         text-align: center;
         max-width: 550px;
         max-height: 620px;
-        margin: 20vh auto 20vh auto;
+        margin: 10vh auto 10vh auto;
         padding: 20px;
         border-radius: 30px;
         ::placeholder {
@@ -92,7 +101,7 @@ section {
           font-size: 16px;
         }
         @media screen and (max-width: 700px) {
-          margin: 10px auto 100px auto;
+          margin: 10px auto 60px auto;
         }
         h3 {
           line-height: 1.5em;
@@ -107,26 +116,23 @@ section {
           font-weight: bold;
         }
         input,
-        select {
+        select,
+        textarea {
           display: block;
           padding: 10px 6px;
           width: 100%;
           box-sizing: border-box;
           border: none;
-          border-bottom: 1px solid #ddd;
-          color: #555;
+          -webkit-box-shadow: inset 1px 2px 3px 1px #c2c2c2;
+          box-shadow: inset 1px 2px 3px 1px #c2c2c2;
         }
-        input[type="checkbox"] {
-          display: inline-block;
-          width: 16px;
-          margin: 0 10px 0 0;
-          position: relative;
-          top: 2px;
+        .request-body {
+          height: 200px;
         }
       }
       .button-container {
         text-align: center;
-        margin-top: -70px;
+        margin-top: -30px;
       }
 
       .btn {

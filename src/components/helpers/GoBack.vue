@@ -26,14 +26,14 @@ export default {
   }
 }
 button {
-  font-size: 35px;
+  font-size: 25px;
   line-height: 25px;
   width: 1.3em;
   height: 1.3em;
   cursor: pointer;
   transform: rotate(180deg);
   color: rgb(255, 255, 255);
-  background-color: #457b9d;
+  background-color: #e63946;
   border: 2px solid white;
   border-radius: 50%;
   button:hover {
