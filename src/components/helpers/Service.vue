@@ -177,9 +177,8 @@ export default {
       border: none;
       box-shadow: 1px 1px 12px rgb(233 233 233);
       transition: all 0.5s;
-      width: 45vh;
+      width: 100%;
       padding: 20px 40px;
-      margin-left: -3.5vh;
       height: 100%;
     }
   }

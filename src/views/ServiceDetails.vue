@@ -1,4 +1,5 @@
 <template>
+  <GoBack />
   <section>
     <div class="heading">
       <h1>{{ name }}</h1>
@@ -17,7 +18,7 @@
       </div>
     </div>
     <div class="button-container">
-      <button class="btn btn-secondary" v-on:click="locate">
+      <button class="btn btn-secondary" v-on:click.stop.prevent="locate">
         やってみます
       </button>
     </div>
@@ -29,10 +30,10 @@
 <script>
 import Footer from "@/components/helpers/Footer.vue";
 import BackToTop from "@/components/BackToTop.vue";
-
+import GoBack from "@/components/helpers/GoBack.vue";
 export default {
   name: "Details",
-  components: { Footer, BackToTop },
+  components: { Footer, BackToTop, GoBack },
   props: [
     "id",
     "name",
@@ -50,6 +51,8 @@ export default {
   methods: {
     locate() {
       location.href = this.href;
+      let newTab = window.open();
+      newTab.location.href = this.href;
     },
   },
 };
