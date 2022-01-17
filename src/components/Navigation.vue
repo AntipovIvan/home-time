@@ -35,25 +35,28 @@
         <ul v-show="mobileNav" class="dropdown-nav">
           <hr />
           <li class="li1">
-            <router-link class="link" :to="{ name: 'Home' }"
+            <router-link class="link" @click="closeNav" :to="{ name: 'Home' }"
               >トップページ</router-link
             >
           </li>
           <hr />
           <li class="li2">
-            <router-link class="link" :to="{ name: 'About' }"
+            <router-link class="link" @click="closeNav" :to="{ name: 'About' }"
               >お問い合わせ</router-link
             >
           </li>
           <hr />
           <li class="li3">
-            <router-link class="link" :to="{ name: 'Chatroom' }"
+            <router-link
+              class="link"
+              @click="closeNav"
+              :to="{ name: 'Chatroom' }"
               >チャットルム</router-link
             >
           </li>
           <hr />
           <li class="li4">
-            <router-link class="link" :to="{ name: 'List' }"
+            <router-link class="link" @click="closeNav" :to="{ name: 'List' }"
               >サービス紹介</router-link
             >
           </li>
@@ -87,6 +90,9 @@ export default {
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
     },
+    closeNav() {
+      this.mobileNav = false;
+    },
     close(e) {
       if (!this.$el.contains(e.target)) {
         this.mobileNav = false;
@@ -101,7 +107,6 @@ export default {
       this.scrolledNav = false;
       return;
     },
-
     checkScreen() {
       this.windowsWidth = window.innerWidth;
       if (this.windowsWidth <= 750) {

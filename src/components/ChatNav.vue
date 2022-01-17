@@ -25,9 +25,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-// h1 {
-//   margin-left: 30px;
-// }
-</style>

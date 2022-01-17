@@ -225,6 +225,9 @@ section {
     .third-content {
       text-align: right;
       right: 5%;
+      @media (max-width: 625px) {
+        text-align: left;
+      }
     }
     .second-content {
       left: 5%;

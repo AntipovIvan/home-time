@@ -106,14 +106,8 @@ export default {
   cursor: pointer;
   position: fixed;
   z-index: 1000;
-  @media (min-width: 500px) {
-    right: 30px;
-    bottom: 140px;
-  }
-  @media (max-width: 500px) {
-    left: 20px;
-    bottom: 200px;
-  }
+  right: 20px;
+  bottom: 140px;
 }
 
 .vue-back-to-top .default {
