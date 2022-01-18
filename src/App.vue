@@ -1,7 +1,11 @@
 <template>
   <div class="app">
     <Navigation />
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <transition name="scale-slide">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 
@@ -31,5 +35,25 @@ export default {
   padding: 0 20px;
   max-width: 1140px;
   margin: 0 auto;
+}
+.scale-slide-enter-active,
+.scale-slide-leave-active {
+  transition: all 0.85s ease;
+}
+
+.scale-slide-enter-from {
+  left: -100%;
+}
+
+.scale-slide-enter-to {
+  left: 0%;
+}
+
+.scale-slide-leave-from {
+  transform: scale(1);
+}
+
+.scale-slide-leave-to {
+  transform: scale(0.8);
 }
 </style>

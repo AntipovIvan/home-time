@@ -37,53 +37,61 @@
       >
     </div>
   </div>
-
-  <div
-    class="service-card"
-    v-for="services in filteredServices"
-    :key="services.id"
+  <transition-group
+    name="staggered-fade"
+    :css="false"
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @leave="leave"
   >
-    <div class="row">
-      <div class="service-title">
-        <p class="service-title">{{ services.name }}</p>
-      </div>
-      <div>
-        <img :src="services.image" alt="サービス画像" class="service-img" />
-      </div>
-      <div class="content">
-        <div class="service-body">
-          <p class="figcaption">{{ services.figcaption }}</p>
-          <p class="text-service">
-            {{ services.description }}
-          </p>
+    <li
+      class="service-card"
+      v-for="services in filteredServices"
+      :key="services.id"
+    >
+      <div class="row">
+        <div class="service-title">
+          <p class="service-title">{{ services.name }}</p>
+        </div>
+        <div>
+          <img :src="services.image" alt="サービス画像" class="service-img" />
+        </div>
+        <div class="content">
+          <div class="service-body">
+            <p class="figcaption">{{ services.figcaption }}</p>
+            <p class="text-service">
+              {{ services.description }}
+            </p>
+          </div>
+        </div>
+        <div class="button-container">
+          <router-link
+            :to="{
+              name: 'ServiceDetails',
+              params: {
+                id: services.id,
+                name: services.name,
+                description: services.description,
+                image: services.image,
+                figcaption: services.figcaption,
+                href: services.href,
+                image2: services.image2,
+                description2: services.description2,
+              },
+            }"
+          >
+            <button class="btn btn-secondary">詳しく</button></router-link
+          >
         </div>
       </div>
-      <div class="button-container">
-        <router-link
-          :to="{
-            name: 'ServiceDetails',
-            params: {
-              id: services.id,
-              name: services.name,
-              description: services.description,
-              image: services.image,
-              figcaption: services.figcaption,
-              href: services.href,
-              image2: services.image2,
-              description2: services.description2,
-            },
-          }"
-        >
-          <button class="btn btn-secondary">詳しく</button></router-link
-        >
-      </div>
-    </div>
-    <HorizontalRuler />
-  </div>
+      <HorizontalRuler />
+    </li>
+  </transition-group>
 </template>
 
 <script>
 import store from "@/data/store";
+import gsap from "gsap";
 import HorizontalRuler from "@/components/helpers/HorizontalRuler.vue";
 export default {
   components: { HorizontalRuler },
@@ -110,7 +118,28 @@ export default {
       }
     },
   },
-  methods: {},
+  methods: {
+    beforeEnter(el) {
+      el.style.opacity = 0;
+      el.style.height = 0;
+    },
+    enter(el, done) {
+      gsap.to(el, {
+        opacity: 1,
+        height: "550px",
+        delay: el.dataset.index * 0.15,
+        onComplete: done,
+      });
+    },
+    leave(el, done) {
+      gsap.to(el, {
+        opacity: 0,
+        height: 0,
+        delay: el.dataset.index * 0.15,
+        onComplete: done,
+      });
+    },
+  },
 };
 </script>
 

@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="button-container">
-      <button class="btn btn-secondary" v-on:click.stop.prevent="locate">
+      <button class="btn btn-secondary" v-on:click="locate">
         やってみます
       </button>
     </div>
@@ -50,9 +50,11 @@ export default {
   },
   methods: {
     locate() {
-      location.href = this.href;
-      let newTab = window.open();
-      newTab.location.href = this.href;
+      // location.href = this.href;
+      const location = this.$router.replace({
+        redirect: (window.location.href = `${this.href}`),
+      });
+      window.open(location, "_blank");
     },
   },
 };
