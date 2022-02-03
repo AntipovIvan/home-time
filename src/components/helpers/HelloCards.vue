@@ -59,6 +59,9 @@ section {
   p {
     margin: 0;
     font-size: 1.2em;
+    @media screen and (min-width: 1919px) {
+      font-size: 1.5em;
+    }
   }
   .hello {
     background-color: #f1faee;
@@ -70,6 +73,9 @@ section {
     @media (max-width: 625px) {
       height: 350px;
       margin-top: 40px;
+    }
+    @media (min-width: 1850px) {
+      width: 70%;
     }
 
     .hello-image {
@@ -185,6 +191,9 @@ section {
       position: absolute;
       top: 45%;
       padding-right: 20px;
+      @media (min-width: 1919px) {
+        max-width: 820px;
+      }
       @media (max-width: 1366px) {
         max-width: 620px;
       }

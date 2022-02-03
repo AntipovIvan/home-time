@@ -51,7 +51,7 @@
               class="link"
               @click="closeNav"
               :to="{ name: 'Chatroom' }"
-              >チャットルム</router-link
+              >チャットルーム</router-link
             >
           </li>
           <hr />
@@ -180,8 +180,9 @@ header {
       transition: 0.5s ease all;
       border-bottom: 3px solid transparent;
       &:hover {
-        color: rgb(255, 255, 255);
-        border-color: rgb(255, 255, 255);
+        color: #457b9d;
+        background-color: white;
+        border-radius: 5px;
       }
     }
 

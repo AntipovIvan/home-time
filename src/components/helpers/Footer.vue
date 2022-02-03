@@ -87,6 +87,11 @@ footer {
     color: #fff;
     padding-bottom: 0.625rem;
     text-align: center;
+    &:hover {
+      color: #457b9d;
+      background-color: white;
+      border-radius: 5px;
+    }
   }
 
   .ft-main {
