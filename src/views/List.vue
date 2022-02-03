@@ -108,8 +108,8 @@ hr {
   @media (min-width: 1366px) {
     max-width: 1420px;
   }
-  @media (min-width: 1920px) {
-    max-width: 1620px;
-  }
+  // @media (min-width: 1920px) {
+  //   max-width: 1620px;
+  // }
 }
 </style>

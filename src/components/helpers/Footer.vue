@@ -44,7 +44,9 @@ footer {
   background-color: #457b9d;
   color: #bbb;
   line-height: 1.5;
-
+  @media (min-width: 1919px) {
+    height: 160px;
+  }
   hr {
     @media (max-width: 576px) {
       display: block;
@@ -70,12 +72,9 @@ footer {
     align-items: center;
     :first-child {
       @media only screen and (min-width: 576px) {
-        position: absolute;
-        bottom: 0;
+        position: relative;
+        bottom: -10px;
         left: 5%;
-      }
-      @media only screen and (max-width: 1024px) {
-        bottom: 20px;
       }
     }
     img {
@@ -96,11 +95,7 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
   }
-  @media only screen and (min-width: 576px) {
-    .ft-main {
-      padding: 0 100px;
-    }
-  }
+
   @media only screen and (min-width: 1200px) {
     .ft-main {
       justify-content: space-evenly;
@@ -115,7 +110,7 @@ footer {
 
   .ft-legal {
     margin-top: 20px;
-    padding: 0.2375rem 1.875rem;
+    padding-bottom: 20px;
     background-color: #457b9d;
   }
   .ft-legal-list {

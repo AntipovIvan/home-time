@@ -2,7 +2,7 @@
   <div class="app">
     <Navigation />
     <router-view v-slot="{ Component }">
-      <transition name="scale-slide">
+      <transition name="slide-fade">
         <component :is="Component" />
       </transition>
     </router-view>
@@ -36,24 +36,17 @@ export default {
   max-width: 1140px;
   margin: 0 auto;
 }
-.scale-slide-enter-active,
-.scale-slide-leave-active {
-  transition: all 0.85s ease;
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
 }
 
-.scale-slide-enter-from {
-  left: -100%;
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
-.scale-slide-enter-to {
-  left: 0%;
-}
-
-.scale-slide-leave-from {
-  transform: scale(1);
-}
-
-.scale-slide-leave-to {
-  transform: scale(0.8);
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
 }
 </style>

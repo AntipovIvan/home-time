@@ -96,6 +96,9 @@ section {
         margin: 10vh auto 10vh auto;
         padding: 20px;
         border-radius: 30px;
+        @media screen and (min-width: 1919px) {
+          margin: 18vh auto 18vh auto;
+        }
         ::placeholder {
           color: rgb(201, 201, 201);
           font-size: 16px;
@@ -133,6 +136,9 @@ section {
       .button-container {
         text-align: center;
         margin-top: -30px;
+        @media screen and (min-width: 1919px) {
+          margin-top: -15vh;
+        }
       }
 
       .btn {
@@ -172,6 +178,9 @@ section {
       @media screen and (max-width: 700px) {
         width: 100%;
         max-width: 100%;
+      }
+      @media screen and (min-width: 1919px) {
+        margin: 70px 0;
       }
     }
   }

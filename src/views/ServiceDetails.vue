@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="button-container">
-      <button class="btn btn-secondary" v-on:click="locate">
+      <button class="btn btn-secondary" v-on:click="linkToOtherWindow(href)">
         やってみます
       </button>
     </div>
@@ -49,12 +49,8 @@ export default {
     return {};
   },
   methods: {
-    locate() {
-      // location.href = this.href;
-      const location = this.$router.replace({
-        redirect: (window.location.href = `${this.href}`),
-      });
-      window.open(location, "_blank");
+    linkToOtherWindow(url) {
+      window.open(url, "_blank");
     },
   },
 };
