@@ -73,7 +73,7 @@ footer {
     :first-child {
       @media only screen and (min-width: 576px) {
         position: relative;
-        bottom: -10px;
+        bottom: -30px;
         left: 5%;
       }
     }

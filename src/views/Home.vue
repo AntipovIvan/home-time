@@ -155,6 +155,7 @@ export default {
     margin-bottom: 1rem;
   }
   .service-title {
+    font-weight: 550;
     font-size: 1.4rem;
     margin: 0;
   }
@@ -207,6 +208,9 @@ h5 {
   line-height: 1.6;
 }
 .near-footer {
+  h4 {
+    font-weight: 550;
+  }
   @media (max-width: 768px) {
     margin-top: 30px;
   }

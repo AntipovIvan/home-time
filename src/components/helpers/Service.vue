@@ -216,6 +216,7 @@ export default {
   }
   .service-title {
     font-size: 20px;
+    font-weight: 550;
     text-align: left;
     display: flex;
     align-items: flex-end;

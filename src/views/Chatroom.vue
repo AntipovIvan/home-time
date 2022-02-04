@@ -48,8 +48,10 @@ export default {
 
 <style lang="scss">
 .chat-section {
-  padding-top: 95px;
-
+  padding-top: 100px;
+  @media (max-width: 768px) {
+    padding-top: 83px;
+  }
   .vac-card-window {
     height: calc(100vh - 95px) !important;
   }

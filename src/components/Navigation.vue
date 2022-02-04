@@ -7,21 +7,17 @@
         /></router-link>
       </div>
       <ul v-show="!mobile" class="navigation">
-        <li class="li2">
-          <router-link class="link" :to="{ name: 'List' }"
-            >サービス紹介</router-link
-          >
-        </li>
-        <li class="li3">
-          <router-link class="link" :to="{ name: 'Chatroom' }"
-            >チャットルム</router-link
-          >
-        </li>
-        <li class="li4">
-          <router-link class="link" :to="{ name: 'About' }"
-            >お問い合わせ</router-link
-          >
-        </li>
+        <router-link class="link" :to="{ name: 'List' }"
+          ><li class="li2">サービス紹介</li></router-link
+        >
+
+        <router-link class="link" :to="{ name: 'Chatroom' }"
+          ><li class="li3">チャットルーム</li></router-link
+        >
+
+        <router-link class="link" :to="{ name: 'About' }"
+          ><li class="li4">お問い合わせ</li></router-link
+        >
       </ul>
       <div class="icon">
         <i
@@ -146,16 +142,22 @@ header {
       background: url("../assets/listPC.png") 0 40% no-repeat no-repeat;
       background-size: 30px 30px;
       padding-left: 50px;
+      font-size: 18px;
+      font-weight: 550;
     }
     .li3 {
       background: url("../assets/chatroomPC.png") 0 40% no-repeat no-repeat;
       background-size: 30px 30px;
       padding-left: 50px;
+      font-size: 18px;
+      font-weight: 550;
     }
     .li4 {
       background: url("../assets/contactusPC.png") 0 40% no-repeat no-repeat;
       background-size: 30px 30px;
       padding-left: 50px;
+      font-size: 18px;
+      font-weight: 550;
     }
 
     ul,
