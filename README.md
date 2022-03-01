@@ -5,20 +5,8 @@
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Hosting
 ```
-yarn serve
-```
-
-### Compiles and minifies for serviceion
-```
-yarn build
+https://senmon-project.web.app/
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
